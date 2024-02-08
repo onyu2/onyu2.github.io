@@ -1,0 +1,79 @@
+:root {
+	--cursor-normal: url('other/teddy-cursor.cur');
+	--cursor-pointer: url('');
+  }
+  
+  html {
+	cursor: var(--cursor-normal), auto;
+	min-height: 100vh;
+  }
+  
+  body {
+	background-color: #181818;
+  }
+  
+  h1, h2, p {
+	color: rgb(218, 218, 218);
+	text-align: center;
+  }
+  
+  .tab [type=radio] {
+	/* hide the actual buttons */
+	display: none;
+  }
+  
+  .tab [type=radio] ~ .content {
+	display: none;
+  }
+  
+  .tab [type=radio]:checked ~ .content {
+	display: block;
+  }
+  
+  .tab label:hover {
+	cursor: pointer;
+  }
+  
+  .tabs {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	margin-left: 30%; 
+  }
+  
+  .tabs .tab {
+	flex: 0.1;
+  }
+  
+  .tabs .content {
+	position: absolute;
+	top: 2rem; /* positioned right under the label */
+	left: 0;
+  }
+  
+  .tab label {
+	color: rgb(218, 218, 218);
+	height: 2rem;
+	display: flex;
+	background-color: #222;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  .tab label:hover {
+	background-color: #55c;
+  }
+  
+  #credits {
+	font-size: xx-small;
+  }
+  
+  #creditslist {
+	font-size: xx-small;
+  }
+  
+  #photo {
+	width: 26%;
+	height: auto;
+  }
+  
