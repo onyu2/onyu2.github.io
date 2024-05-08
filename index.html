@@ -1,36 +1,35 @@
+<!-- this site was built with the assistance of AI. model(s) used: GPT-4 -->
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="icon" href="other/favicon.png">
-    <link rel="stylesheet" href="style.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="other/favicon1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>onyu (O_O;)</title>
-  </head>
-  <body>
-    <h1>onyu's corner</h1>
-    <div class='tabs'>
-      <div class='tab'>
-        <input type='radio' id='tab-1' name='tab-group-1' checked>
-        <label for='tab-1'>about me</label>
-        <div class='content'>
-          <p>hi, i'm onyu</p>
-          <p>i game and do information security. <br> here are my links:
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
             <ul>
-              <li><a href='https://steamcommunity.com/id/onyu2/'>{steam}</a></li>
-              <li><a href='https://github.com/onyu2'>{github}</a></li>
-              <li><a href='https://tryhackme.com/p/oooooo0'>{tryhackme}</a></li>
-              <li><a href='mailto:me@onyu.club'>{contact}</a></li>
+                <li><a href="#home" class="active" onclick="showSection('home', event)">home</a></li>
+                <li><a href="#me" onclick="showSection('me', event)">me</a></li>
+                <li><a href="#extra" onclick="showSection('extra', event)">extra</a></li>
             </ul>
-          </p>
-        </div>       
-      </div>
-      <div class='tab'>
-        <input type='radio' id='tab-2' name='tab-group-1' checked>
-        <label for='tab-2'>test</label>
-        <div class='content'>
-          <p>stay tuned</p>
-        </div>       
-      </div>
+        </nav>
+    </header>    
+    <div id="home" class="content active">
+        <h1>ONYU'S CLUB / HOME OF ONYU</h1>
+        <p>this is onyu's little corner of the internet</p>
     </div>
-  </body>
+    <div id="me" class="content">
+        <h1>ABOUT ME</h1>
+        <p>i like technology and work in information security. i like to game - previously high level fps, now i just play chill games on the steam deck or league :p</p>
+    </div>
+    <div id="extra" class="content">
+        <h1>CONTENT TBD</h1>
+        <p>more to come, i'm sure i'll put something great here</p>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>

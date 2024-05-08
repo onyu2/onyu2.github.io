@@ -1,79 +1,64 @@
-:root {
-	--cursor-normal: url('other/teddy-cursor.cur');
-	--cursor-pointer: url('');
-  }
-  
-  html {
-	cursor: var(--cursor-normal), auto;
-	min-height: 100vh;
-  }
-  
-  body {
-	background-color: #181818;
-  }
-  
-  h1, h2, p {
-	color: rgb(218, 218, 218);
-	text-align: center;
-  }
-  
-  .tab [type=radio] {
-	/* hide the actual buttons */
-	display: none;
-  }
-  
-  .tab [type=radio] ~ .content {
-	display: none;
-  }
-  
-  .tab [type=radio]:checked ~ .content {
-	display: block;
-  }
-  
-  .tab label:hover {
-	cursor: pointer;
-  }
-  
-  .tabs {
-	display: flex;
-	flex-direction: row;
-	position: relative;
-	margin-left: 30%; 
-  }
-  
-  .tabs .tab {
-	flex: 0.1;
-  }
-  
-  .tabs .content {
-	position: absolute;
-	top: 2rem; /* positioned right under the label */
-	left: 0;
-  }
-  
-  .tab label {
-	color: rgb(218, 218, 218);
-	height: 2rem;
-	display: flex;
-	background-color: #222;
-	justify-content: center;
-	align-items: center;
-  }
-  
-  .tab label:hover {
-	background-color: #55c;
-  }
-  
-  #credits {
-	font-size: xx-small;
-  }
-  
-  #creditslist {
-	font-size: xx-small;
-  }
-  
-  #photo {
-	width: 26%;
-	height: auto;
-  }
-  
+/* general body styles */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: white;
+  background-color: #1a1a1a; /* body background */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden; /* hide horizontal scroll by default */
+  overflow-y: auto;  /* enable vertical scroll only if content is longer than the viewport */
+}
+
+/* header and navigation styles */
+header {
+  background: #1a1a1a; /* head background - matching the body background */
+  color: white;
+  width: 100%;
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #007aff; /* blue color for hover and active state */
+}
+
+/* content styles */
+.content {
+  display: none; /* hide all content by default */
+  text-align: center;
+  width: 80%; /* adjust width as needed */
+  padding: 20px;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.content.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
