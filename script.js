@@ -1,51 +1,44 @@
+// function to show the appropriate section based on the url hash
 function showSection(sectionId, event) {
-    event.preventDefault(); // prevent default anchor click behavior
+    if (event) event.preventDefault();
+    
+    // remove active class from all tabs
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.classList.remove('active');
+    });
+
+    // add active class to the clicked tab
+    document.querySelector(`nav ul li a[href="#${sectionId}"]`).classList.add('active');
 
     // hide all sections
     document.querySelectorAll('.content').forEach(section => {
         section.classList.remove('active');
     });
-    // show the selected section
+
+    // show the clicked section
     document.getElementById(sectionId).classList.add('active');
 
-    // update active class on navigation links
-    document.querySelectorAll('nav ul li a').forEach(link => {
-        if(link.getAttribute('href') === '#' + sectionId) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-
-    // scroll to the top of the page
-    window.scrollTo(0, 0);
+    // update the url hash
+    history.pushState(null, null, `#${sectionId}`);
 }
 
-function showSection(sectionId, event) {
-    // prevent the default link behavior
-    event.preventDefault();
-
-    // remove 'active' class from all sections and tabs
-    document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('nav a').forEach(el => el.classList.remove('active'));
-
-    // add 'active' class to the clicked tab and the corresponding section
-    document.querySelector(`#${sectionId}`).classList.add('active');
-    event.target.classList.add('active');
-
-    // save the current tab in local storage
-    localStorage.setItem('activeTab', sectionId);
-}
-
-window.onload = function() {
-    // get the active tab from local storage
-    const activeTab = localStorage.getItem('activeTab');
-
-    // if there's an active tab saved, show it, otherwise show the default tab
-    if (activeTab) {
-        showSection(activeTab, new Event('build'));
+// function to handle the initial page load
+function handleInitialLoad() {
+    const hash = window.location.hash.substring(1);
+    if (hash) {
+        showSection(hash);
     } else {
-        showSection('home', new Event('build'));
+        showSection('home');
     }
-};
+}
 
+// bind the showSection function to each nav link
+document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', function(event) {
+        const sectionId = this.getAttribute('href').substring(1);
+        showSection(sectionId, event);
+    });
+});
+
+// handle the initial load
+document.addEventListener('DOMContentLoaded', handleInitialLoad);
